@@ -1,0 +1,30 @@
+!!!
+html
+  head
+    title
+      block title
+        | iswydt
+        block subtitle
+          | |
+    block style
+      link(rel='stylesheet', href='/css/bootstrap.css')
+      style
+        body { padding-top: 60px; }
+    block scripts
+  body
+    .topbar
+      .fill
+        .container
+          strong.brand(href='/') iswydt
+          ul.nav
+            li.nav-home
+              a(href='/') Home
+            if !user.isAuthenticated
+              li.nav-register
+                a(href='/register') Register
+    .container
+      block main_content
+      footer
+        p
+          | iswydt v#{version} |
+          a(href='http://github.com/insin/iswydt') Fork me on GitHub

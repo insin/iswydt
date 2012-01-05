@@ -1,0 +1,29 @@
+{
+  "name": "iswydt"
+, "description": "Tumblejobs"
+, "version": "0.0.1alpha"
+, "author": "Jonathan Buchanan <jonathan.buchanan@gmail.com> (https://github.com/insin)"
+, "homepage": "https://github.com/insin/iswydt"
+, "main": "index"
+, "repository": {
+    "type": "git"
+  , "url": "https://github.com/insin/iswydt.git"
+  }
+, "dependencies": {
+    "async": "0.1.x"
+  , "connect-redis": "1.2.x"
+  , "express": "2.5.x"
+  , "hiredis": "0.1.x"
+  , "jade": "0.20.x"
+  , "newforms": "0.0.4alpha2"
+  , "passport": "0.1.x"
+  , "redis": "0.7.x"
+  }
+, "devDependencies": {
+    "mocha": "0.8.x"
+  }
+, "scripts": {
+    "run": "node server.js"
+  , "test": "mocha"
+  }
+}

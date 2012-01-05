@@ -1,0 +1,21 @@
+extends hero
+
+append subtitle
+  | Login
+
+block content
+  form(action='/login', method='POST')
+    fields = form.boundFieldsObj()
+    fieldset
+      legend Login
+      != fields.next
+      .clearfix
+        != fields.username.labelTag()
+        .input
+          != fields.username
+      .clearfix
+        != fields.password.labelTag()
+        .input
+          != fields.password
+      .actions
+        input.btn.primary(type='submit', value='Login')
