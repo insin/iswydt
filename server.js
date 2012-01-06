@@ -68,9 +68,9 @@ function getRandom(cb) {
 
 function hashPassword(password, salt, cb) {
   crypto.pbkdf2(password, salt, settings.PBKDF2_ITERATIONS, 160/8,
-  function(err, key) {
+  function(err, derivedKey) {
     if (err) return cb(err)
-    cb(null, key)
+    cb(null, new Buffer(derivedKey).toString('hex'))
   })
 }
 
