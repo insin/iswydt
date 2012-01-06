@@ -177,7 +177,7 @@ app.post('/register', function(req, res, next) {
 
 app.get('/login', function(req, res) {
   if (req.user.isAuthenticated) return res.redirect('/profile')
-  var form = forms.LoginForm({initial: req.body})
+  var form = forms.LoginForm({initial: req.query})
   res.render('login', {form: form})
 })
 
@@ -194,6 +194,9 @@ app.post('/login', function(req, res, next) {
     }
     // Authorised
     req.session.userId = user.id
+    if (data.next) {
+      return res.redirect(data.next)
+    }
     res.redirect('/profile')
   })
 })
