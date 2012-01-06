@@ -1,0 +1,17 @@
+mixin formErrors(form)
+  errors = form.nonFieldErrors().errors
+  if errors.length
+    .clearfix.error
+      .input
+        for error in errors
+          span.help-block= error
+
+mixin field(field)
+  errors = field.errors().errors
+  errorClass = errors.length ? 'error' : ''
+  .clearfix(class='#{errorClass}')
+    != field.labelTag()
+    .input
+      != field
+      for error in errors
+        span.help-inline= error

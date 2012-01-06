@@ -7,25 +7,15 @@ append style
   style
 
 block content
+  include mixins/forms
   form(action='/register', method='POST')
     fields = form.boundFieldsObj()
     fieldset
       legend Register
-      .clearfix
-        != fields.username.labelTag()
-        .input
-          != fields.username
-      .clearfix
-        != fields.email.labelTag()
-        .input
-          != fields.email
-      .clearfix
-        != fields.password.labelTag()
-        .input
-          != fields.password
-      .clearfix
-        != fields.confirm.labelTag()
-        .input
-          != fields.confirm
+      mixin formErrors(form)
+      mixin field(fields.username)
+      mixin field(fields.email)
+      mixin field(fields.password)
+      mixin field(fields.confirm)
       .actions
         input.btn.primary(type='submit', value='Register')

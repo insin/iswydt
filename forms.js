@@ -1,26 +1,43 @@
 var forms = require('newforms')
 
-with (forms) {
+var settings = require('./settings')
 
-exports.RegisterForm = Form({
-  username : CharField()
-, email    : EmailField()
-, password : CharField({widget: PasswordInput})
-, confirm  : CharField({widget: PasswordInput})
+function addError(field, message) {
+  this._errors.set(field,
+                   new this.errorConstructor([message]))
+}
+
+function addFormError(message) {
+  this._errors.set(forms.NON_FIELD_ERRORS,
+                   new this.errorConstructor([message]))
+}
+
+var RegisterForm = exports.RegisterForm = forms.Form({
+  username : forms.CharField()
+, email    : forms.EmailField()
+, password : forms.CharField({
+    minLength: settings.MIN_PASSWORD_LENGTH
+  , widget: forms.PasswordInput
+  })
+, confirm  : forms.CharField({widget: forms.PasswordInput})
 
 , clean: function() {
     if (this.cleanedData.password && this.cleanedData.confirm &&
         this.cleanedData.password != this.cleanedData.confirm) {
-      throw ValidationError('Passwords did not match.')
+      throw forms.ValidationError('Passwords did not match.')
     }
     return this.cleanedData
   }
+
+, addError: addError
+, addFormError: addFormError
 })
 
-exports.LoginForm = Form({
-  username : CharField()
-, password : CharField({widget: PasswordInput})
-, next     : CharField({required: false, widget: HiddenInput})
-})
+var LoginForm = exports.LoginForm = forms.Form({
+  username : forms.CharField()
+, password : forms.CharField({widget: forms.PasswordInput})
+, next     : forms.CharField({required: false, widget: forms.HiddenInput})
 
-}
+, addError: addError
+, addFormError: addFormError
+})

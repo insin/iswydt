@@ -1,3 +1,5 @@
 module.exports = {
   SESSION_SECRET: ''
+, PBKDF2_ITERATIONS: 1000
+, MIN_PASSWORD_LENGTH: 8
 }

@@ -8,6 +8,7 @@ html
           | |
     block style
       link(rel='stylesheet', href='/css/bootstrap.css')
+      link(rel='stylesheet', href='/css/style.css')
       style
         body { padding-top: 60px; }
     block scripts
@@ -19,9 +20,16 @@ html
           ul.nav
             li.nav-home
               a(href='/') Home
-            if !user.isAuthenticated
-              li.nav-register
-                a(href='/register') Register
+          .user
+            ul.nav
+              if !user.isAuthenticated
+                li.nav-login
+                  a(href='/login') Login
+                li.nav-register
+                  a(href='/register') Register
+              else
+                li.nav-logout
+                  a(href='/logout') Logout
     .container
       block main_content
       footer
