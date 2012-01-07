@@ -8,6 +8,7 @@ var express = require('express')
 
 var forms = require('./forms')
   , settings = require('./settings')
+  , services = require('./lib/services')
 
 // ------------------------------------------------------- Utils & Shortcuts ---
 
@@ -210,6 +211,21 @@ app.get('/logout', function(req, res, next) {
 app.get('/profile', function(req, res) {
   if (!req.user.isAuthenticated) return res.redirect($f('/login?next=%s', req.url))
   res.render('profile')
+})
+
+app.get('/services', function(req, res) {
+  res.render('services', {services: services.all})
+})
+
+app.get('/services/:name', function(req, res) {
+  if (!services.hasOwnProperty(req.params.name)) {
+    return res.render('404')
+  }
+  res.render('service', {service: services[req.params.name]})
+})
+
+app.use(function(req, res, next) {
+  res.render('404')
 })
 
 // ----------------------------------------------------------------- Startup ---

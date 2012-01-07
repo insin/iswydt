@@ -1,0 +1,13 @@
+extends standard
+
+block subtitle
+  | Services
+
+block content
+  .page-header
+    h1 Services
+  ul
+    for service in services
+      li
+        a(href='/services/#{service.name}')!= service.name
+        | &nbsp;&ndash; #{service.description}

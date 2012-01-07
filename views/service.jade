@@ -1,0 +1,34 @@
+extends standard
+
+block subtitle
+  | #{service.name}
+
+block content
+  .page-header
+    h1 #{service.name} <small>#{service.description}</small>
+  if service.readers.length
+    h2 Readers
+      for reader in service.readers
+        .reader
+          auth = {true: 'Public', false: 'Required'}[reader.public] || 'Depends'
+          h3 #{reader.name} <small>(Auth: #{auth})</small>
+          p= reader.description
+          h4 Options
+            ul
+              each option in reader.options
+                li= option.name
+          h4 Fields
+            ul
+              each field in reader.fields
+                li= field.name
+  if service.writers.length
+    h2 Writers
+      for writer in service.writers
+        .writer
+          auth = {true: 'Public', false: 'Required'}[writer.public] || 'Depends'
+          h3 #{writer.name} <small>(Auth: #{auth})</small>
+          p= writer.description
+          h4 Fields
+            ul
+              each field in writer.fields
+                li= field.name

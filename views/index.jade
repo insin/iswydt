@@ -2,13 +2,35 @@ extends hero
 
 block subtitle
 
+append style
+  style
+    .hero-unit {
+      background-image: url('../img/square_bg.png');
+      background-repeat: repeat;
+    }
+
 block content
-  h1 iswydt
+  h2 do you see what <u>i/they</u> did there?
+  h1(style='text-align: center; text-decoration: underline') iswydt
+  h2(style='text-align: right')  did you see what <u>i</u> did there?
 
 block columns
   .span5
-    h2 iswydt
-  .span6.examples
-    h2 iswydt
-  .span5.examples
-    h2 iswydt
+    h2 dysw<u>i/t</u>dt?
+    ul
+      li Someone checked in changes to <code>django.forms</code>
+      li You watched a <a href="http://nodejs.org">Node.js</a>-using repo
+      li OMG! Jeff Lait released a new <a href="http://zincland.com/powder/">POWDER</a>!
+  .span6
+    h2(style='text-decoration: underline') iswydt
+    ul
+      li Watches what you tell it to watch
+      li Does what you tell it to do
+  .span5
+    h2 dysw<u>i</u>dt?
+    ul
+      li Created an issue on your port's GitHub repo
+      li
+        | Bookmarked the watched repo in Delicious and tagged it with its
+        | package.json tags.
+      li Er&hellip; created an issue on your other port's GitHub repo
