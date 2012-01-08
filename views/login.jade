@@ -3,6 +3,9 @@ extends hero
 append subtitle
   | Login
 
+block bodyclass
+  bodyclass = 'login'
+
 block content
   include mixins/forms
   form(action='/login', method='POST')

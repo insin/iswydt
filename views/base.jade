@@ -12,26 +12,28 @@ html
       style
         body { padding-top: 60px; }
     block scripts
-  body
+  block bodyclass
+    bodyclass = ''
+  body(class=bodyclass)
     .topbar
       .fill
         .container
           strong.brand(href='/') iswydt
           ul.nav
-            li.nav-home
-              a(href='/') Home
-            li.nav-services
-              a(href='/services') Services
+            li
+              a.nav-home(href='/') Home
+            li
+              a.nav-services(href='/services') Services
           .user
             ul.nav
               if !user.isAuthenticated
-                li.nav-login
-                  a(href='/login') Login
-                li.nav-register
-                  a(href='/register') Register
+                li
+                  a.nav-login(href='/login') Login
+                li
+                  a.nav-register(href='/register') Register
               else
-                li.nav-logout
-                  a(href='/logout') Logout
+                li
+                  a.nav-logout(href='/logout') Logout
     .container
       block main_content
       footer
