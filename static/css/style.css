@@ -4,11 +4,15 @@
   margin-right: -20px;
 }
 
-
 body.home .nav-home,
 body.services .nav-services,
 body.login .nav-login,
 body.register .nav-register {
   background-color: #000;
   color: #fff;
+}
+
+.hero-unit {
+  background-image: url('../img/square_bg.png');
+  background-repeat: repeat;
 }
