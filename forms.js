@@ -17,8 +17,7 @@ exports.RegisterForm = forms.Form.extend({
   username : forms.CharField()
 , email    : forms.EmailField()
 , password : forms.CharField({ minLength: settings.MIN_PASSWORD_LENGTH
-                             , widget: forms.PasswordInput
-                             })
+                             , widget: forms.PasswordInput })
 , confirm  : forms.CharField({widget: forms.PasswordInput})
 
 , clean: function() {

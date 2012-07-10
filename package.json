@@ -11,19 +11,17 @@
   }
 , "dependencies": {
     "async": "0.1.x"
-  , "connect-redis": "1.2.x"
+  , "connect-redis": "1.4.x"
   , "express": "2.5.x"
   , "hiredis": "0.1.x"
-  , "jade": "0.20.x"
+  , "jade": "0.26.x"
   , "newforms": "0.4.x"
   , "passport": "0.1.x"
   , "redis": "0.7.x"
   }
 , "devDependencies": {
-    "mocha": "0.8.x"
   }
 , "scripts": {
     "run": "node server.js"
-  , "test": "mocha"
   }
 }
