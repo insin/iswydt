@@ -152,13 +152,13 @@ app.get('/', function(req, res) {
 
 app.get('/register', function(req, res) {
   if (req.user.isAuthenticated) return res.redirect('/profile')
-  var form = forms.RegisterForm()
+  var form = new forms.RegisterForm()
   res.render('register', {form: form})
 })
 
 app.post('/register', function(req, res, next) {
   if (req.user.isAuthenticated) return res.redirect('/profile')
-  var form = forms.RegisterForm({data: req.body})
+  var form = new forms.RegisterForm({data: req.body})
     , redisplay = function() { res.render('register', {form: form}) }
   if (!form.isValid()) return redisplay()
   var data = form.cleanedData
@@ -178,13 +178,13 @@ app.post('/register', function(req, res, next) {
 
 app.get('/login', function(req, res) {
   if (req.user.isAuthenticated) return res.redirect('/profile')
-  var form = forms.LoginForm({initial: req.query})
+  var form = new forms.LoginForm({initial: req.query})
   res.render('login', {form: form})
 })
 
 app.post('/login', function(req, res, next) {
   if (req.user.isAuthenticated) return res.redirect('/profile')
-  var form = forms.LoginForm({data: req.body})
+  var form = new forms.LoginForm({data: req.body})
     , redisplay = function() { res.render('login', {form: form}) }
   if (!form.isValid()) return redisplay()
   var data = form.cleanedData

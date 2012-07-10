@@ -1,7 +1,7 @@
 {
   "name": "iswydt"
 , "description": "Tumblejobs"
-, "version": "0.0.1alpha"
+, "version": "0.0.0"
 , "author": "Jonathan Buchanan <jonathan.buchanan@gmail.com> (https://github.com/insin)"
 , "homepage": "https://github.com/insin/iswydt"
 , "main": "index"
@@ -15,7 +15,7 @@
   , "express": "2.5.x"
   , "hiredis": "0.1.x"
   , "jade": "0.20.x"
-  , "newforms": "0.0.4alpha2"
+  , "newforms": "0.4.x"
   , "passport": "0.1.x"
   , "redis": "0.7.x"
   }
